@@ -1,8 +1,10 @@
 package service
 
 import (
+	"context"
 	"errors"
 	"fmt"
+	"time"
 
 	utils "github.com/kryast/project-app-crud-golang-ahmad-syarifuddin/Utils"
 	view "github.com/kryast/project-app-crud-golang-ahmad-syarifuddin/View"
@@ -24,6 +26,19 @@ func Crud() {
 		fmt.Println("Error loading siswa data:", err)
 	}
 
+	parentCtx := context.Background()
+	deadline := time.Now().Add(20 * time.Second)
+
+	ctx, cancel := context.WithDeadline(parentCtx, deadline)
+	defer cancel()
+
+	go func() {
+		<-ctx.Done()
+		utils.ClearScreen()
+		fmt.Println("99. Kembali")
+		fmt.Println("Sesi anda habis. Silahkan Login Kembali")
+		fmt.Print("Masukkan angka :")
+	}()
 	var input int
 	view.CrudMenu()
 	fmt.Scan(&input)
