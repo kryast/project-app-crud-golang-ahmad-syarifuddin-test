@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 
+	model "github.com/kryast/project-app-crud-golang-ahmad-syarifuddin/Model"
 	service "github.com/kryast/project-app-crud-golang-ahmad-syarifuddin/Service"
 	utils "github.com/kryast/project-app-crud-golang-ahmad-syarifuddin/Utils"
 )
@@ -54,7 +55,58 @@ func Home() {
 			fmt.Println("---------------------")
 		}
 
-		Home()
+		BackHome()
+
+	case 3:
+		utils.ClearScreen()
+		fmt.Println("---------------------")
+		fmt.Println("Daftar Akun saat ini:")
+
+		if err := utils.LoadAkun("data_akun.json"); err != nil {
+			fmt.Println("Gagal memuat data akun:", err)
+			BackHome()
+			return
+		}
+
+		for _, a := range model.DataAkun {
+			fmt.Printf("Username: %s\n", a.Username)
+		}
+		fmt.Println("---------------------")
+		BackHome()
+
+	case 4:
+		utils.ClearScreen()
+
+		if err := utils.LoadAkun("data_akun.json"); err != nil {
+			fmt.Println("Gagal memuat data akun:", err)
+			BackHome()
+			return
+		}
+
+		if len(model.DataAkun) == 0 {
+			fmt.Println("Data Masih kosong")
+			BackHome()
+			return
+		}
+
+		var input string
+		fmt.Print("Masukkan Username: ")
+		fmt.Scan(&input)
+
+		found := false
+
+		for _, akun := range model.DataAkun {
+			if akun.Username == input {
+				fmt.Printf("Username: %s\nPassword: %s\n", akun.Username, akun.Password)
+				found = true
+				break
+			}
+		}
+
+		if !found {
+			fmt.Println("Error: Username tidak ditemukan.")
+		}
+		BackHome()
 
 	case 99:
 		utils.ClearScreen()

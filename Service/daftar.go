@@ -5,11 +5,11 @@ import (
 	"fmt"
 
 	model "github.com/kryast/project-app-crud-golang-ahmad-syarifuddin/Model"
+	utils "github.com/kryast/project-app-crud-golang-ahmad-syarifuddin/Utils"
 )
 
 func DaftarAkun() (model.Akun, []model.Akun, error) {
-	var username string
-	var password string
+	var username, password string
 
 	fmt.Print("Masukkan Username: ")
 	fmt.Scan(&username)
@@ -21,6 +21,11 @@ func DaftarAkun() (model.Akun, []model.Akun, error) {
 	}
 
 	model.DataAkun = append(model.DataAkun, model.Akun{Username: username, Password: password})
+
+	if err := utils.SaveAkun("data_akun.json"); err != nil {
+		return model.Akun{}, model.DataAkun, err
+	}
+
 	return model.Akun{Username: username, Password: password}, model.DataAkun, nil
 }
 
