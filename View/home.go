@@ -22,6 +22,19 @@ func Home() {
 	fmt.Scan(&input)
 
 	switch input {
+	case 1:
+		utils.ClearScreen()
+		utils.ClearScreen()
+		fmt.Println("Silahkan Login")
+		err := service.Login()
+		if err != nil {
+			fmt.Println("Error :", err)
+			BackHome()
+		} else {
+			utils.ClearScreen()
+
+			Crud()
+		}
 
 	case 2:
 		utils.ClearScreen()
