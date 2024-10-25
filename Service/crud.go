@@ -27,10 +27,9 @@ func Crud() {
 	}
 
 	parentCtx := context.Background()
-	deadline := time.Now().Add(20 * time.Second)
+	deadline := time.Now().Add(3 * time.Second)
 
 	ctx, cancel := context.WithDeadline(parentCtx, deadline)
-	defer cancel()
 
 	go func() {
 		<-ctx.Done()
@@ -38,6 +37,7 @@ func Crud() {
 		fmt.Println("99. Kembali")
 		fmt.Println("Sesi anda habis. Silahkan Login Kembali")
 		fmt.Print("Masukkan angka :")
+		cancel()
 	}()
 	var input int
 	view.CrudMenu()
