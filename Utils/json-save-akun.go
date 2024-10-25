@@ -15,7 +15,7 @@ func SaveAkun(filename string) error {
 	defer file.Close()
 
 	encoder := json.NewEncoder(file)
-	encoder.SetIndent("", "  ")
+
 	if err := encoder.Encode(model.DataAkun); err != nil {
 		return err
 	}

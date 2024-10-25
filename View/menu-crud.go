@@ -1,11 +1,11 @@
-package utils
+package view
 
 import "fmt"
 
 func CrudMenu() {
-	fmt.Println("========================")
-	fmt.Println("Selamat Datang Di UdinDB")
-	fmt.Println("========================")
+	fmt.Println("================================================")
+	fmt.Println("Selamat Datang Di SMA YPI Tunas Bangsa Palembang")
+	fmt.Println("================================================")
 	fmt.Println("1. Input Data Guru")
 	fmt.Println("2. Input Data Siswa")
 	fmt.Println("3. Update Data Guru")

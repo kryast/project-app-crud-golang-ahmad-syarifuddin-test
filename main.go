@@ -1,9 +1,9 @@
 package main
 
 import (
-	view "github.com/kryast/project-app-crud-golang-ahmad-syarifuddin/View"
+	service "github.com/kryast/project-app-crud-golang-ahmad-syarifuddin/Service"
 )
 
 func main() {
-	view.Home()
+	service.Home()
 }

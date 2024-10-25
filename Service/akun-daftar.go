@@ -22,7 +22,7 @@ func DaftarAkun() (model.Akun, []model.Akun, error) {
 
 	model.DataAkun = append(model.DataAkun, model.Akun{Username: username, Password: password})
 
-	if err := utils.SaveAkun("data_akun.json"); err != nil {
+	if err := utils.SaveAkun("Model/data_akun.json"); err != nil {
 		return model.Akun{}, model.DataAkun, err
 	}
 
