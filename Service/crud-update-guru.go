@@ -8,9 +8,18 @@ import (
 )
 
 func UpdateGuru() {
+	ReadGuru()
+	fmt.Println("\n0. Kembali")
 	var id int
 	fmt.Print("Masukkan ID guru yang ingin diupdate: ")
 	fmt.Scan(&id)
+	if id == 0 {
+		utils.ClearScreen()
+		Crud()
+	} else if id == 99 {
+		utils.ClearScreen()
+		Home()
+	}
 	for i, guru := range model.DataGuru {
 		if guru.ID == id {
 			fmt.Print("Masukkan nama guru baru: ")

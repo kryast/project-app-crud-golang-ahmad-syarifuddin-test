@@ -8,9 +8,18 @@ import (
 )
 
 func DeleteSiswa() {
+	ReadSiswa()
+	fmt.Println("\n0. Kembali")
 	var id int
 	fmt.Print("Masukkan ID siswa yang ingin dihapus: ")
 	fmt.Scan(&id)
+	if id == 0 {
+		utils.ClearScreen()
+		Crud()
+	} else if id == 99 {
+		utils.ClearScreen()
+		Home()
+	}
 	for i, siswa := range model.DataSiswa {
 		if siswa.ID == id {
 			model.DataSiswa = append(model.DataSiswa[:i], model.DataSiswa[i+1:]...)

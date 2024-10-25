@@ -10,14 +10,35 @@ import (
 func CreateSiswa() {
 	var siswa model.Siswa
 	siswa.ID = utils.TambahID(model.DataSiswa)
-	fmt.Print("Masukkan nama siswa: ")
-	fmt.Scan(&siswa.Nama)
-	fmt.Print("Masukkan NIS siswa: ")
-	fmt.Scan(&siswa.NIS)
-	fmt.Print("Masukkan kelas: ")
-	fmt.Scan(&siswa.Kelas)
-	fmt.Print("Masukkan jurusan: ")
-	fmt.Scan(&siswa.Jurusan)
+
+	fmt.Print("Masukkan nama siswa : ")
+	if _, err := fmt.Scan(&siswa.Nama); err != nil || siswa.Nama == "99" {
+		utils.ClearScreen()
+		Home()
+		return
+	}
+
+	fmt.Print("Masukkan NIS siswa : ")
+	if _, err := fmt.Scan(&siswa.NIS); err != nil || siswa.NIS == 99 {
+		utils.ClearScreen()
+		Home()
+		return
+	}
+
+	fmt.Print("Masukkan kelas : ")
+	if _, err := fmt.Scan(&siswa.Kelas); err != nil || siswa.Kelas == 99 {
+		utils.ClearScreen()
+		Home()
+		return
+	}
+
+	fmt.Print("Masukkan jurusan : ")
+	if _, err := fmt.Scan(&siswa.Jurusan); err != nil || siswa.Jurusan == "99" {
+		utils.ClearScreen()
+		Home()
+		return
+	}
+
 	model.DataSiswa = append(model.DataSiswa, siswa)
 	fmt.Println("Data siswa berhasil ditambahkan!")
 

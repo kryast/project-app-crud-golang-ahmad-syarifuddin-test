@@ -15,6 +15,5 @@ func CrudMenu() {
 	fmt.Println("7. Tampilkan Semua Data Guru")
 	fmt.Println("8. Tampilkan Semua Data Siswa")
 	fmt.Println("0. Log Out")
-	fmt.Println("99. Exit")
 	fmt.Print("Masukkan nomor menu: ")
 }

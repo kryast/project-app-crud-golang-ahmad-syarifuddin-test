@@ -8,9 +8,18 @@ import (
 )
 
 func UpdateSiswa() {
+	ReadSiswa()
+	fmt.Println("\n0. Kembali")
 	var id int
 	fmt.Print("Masukkan ID siswa yang ingin diupdate: ")
 	fmt.Scan(&id)
+	if id == 0 {
+		utils.ClearScreen()
+		Crud()
+	} else if id == 99 {
+		utils.ClearScreen()
+		Home()
+	}
 	for i, siswa := range model.DataSiswa {
 		if siswa.ID == id {
 			fmt.Print("Masukkan nama siswa baru: ")

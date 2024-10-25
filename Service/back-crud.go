@@ -17,6 +17,9 @@ func BackCrud() {
 	utils.ClearScreen()
 	if input == 0 {
 		Crud()
+	} else if input == 99 {
+		utils.ClearScreen()
+		Home()
 	} else {
 		fmt.Println("Error !!")
 		Crud()

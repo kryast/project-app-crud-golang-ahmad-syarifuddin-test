@@ -31,28 +31,44 @@ func Crud() {
 	switch input {
 
 	case 1:
+		utils.ClearScreen()
 		CreateGuru()
+		BackCrud()
 
 	case 2:
+		utils.ClearScreen()
 		CreateSiswa()
+		BackCrud()
 
 	case 3:
+		utils.ClearScreen()
 		UpdateGuru()
+		BackCrud()
 
 	case 4:
+		utils.ClearScreen()
 		UpdateSiswa()
+		BackCrud()
 
 	case 5:
+		utils.ClearScreen()
 		DeleteGuru()
+		BackCrud()
 
 	case 6:
+		utils.ClearScreen()
 		DeleteSiswa()
+		BackCrud()
 
 	case 7:
+		utils.ClearScreen()
 		ReadGuru()
+		BackCrud()
 
 	case 8:
+		utils.ClearScreen()
 		ReadSiswa()
+		BackCrud()
 
 	case 0:
 		utils.ClearScreen()
@@ -60,13 +76,11 @@ func Crud() {
 
 	case 99:
 		utils.ClearScreen()
-		fmt.Println("Terima kasih! Sampai jumpa!")
-		return
+		Home()
 
 	default:
 		err := errors.New("pilihan tidak valid")
 		utils.Panik(err)
 	}
 
-	Crud()
 }

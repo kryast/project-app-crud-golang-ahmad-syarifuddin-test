@@ -1,8 +1,1 @@
-[
-  {
-    "ID": 1,
-    "Nama": "Ahmad",
-    "NIP": 202401,
-    "MataPelajaran": "TIK"
-  }
-]
+[{"ID":1,"Nama":"Ahmad","NIP":202401,"MataPelajaran":"TIK"},{"ID":2,"Nama":"Ahmad","NIP":202402,"MataPelajaran":"MTK"}]
